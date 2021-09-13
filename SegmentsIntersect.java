@@ -3,7 +3,7 @@
   Chapter - Computational Geometry
   Concept - Intersection of Lines.
   Page No. - 1017, 1018
-  Status :- Answer is not coming right. 
+  Status :- Not completed
 */
 import java.io.*;
 
@@ -49,7 +49,7 @@ public class SegmentsIntersect{
 
     public  static int direction(Point p1, Point p2, Point p3){
         //pk-pi
-        int val = (p2.y-p1.y)*(p3.x - p2.x) - (p2.x - p1.x)*(p3.y-p2.y);
+        int val = (p3.y-p1.y)*(p2.x-p3.x) - (p3.x-p1.x)*(p2.y-p3.y);
         if(val==0) return 0;
         return (val>0)? 1:2;
     }
@@ -67,4 +67,7 @@ public class SegmentsIntersect{
 /* Second day - Resolved all syntax errors but answer is wrong. Now would take help from 
                 GeeksforGeeks article
                 Link:- https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
+    
+    Third Day - Got some points of concept wrong, so now improving them.
+                Updated direction(concept wise orientation).
 */
