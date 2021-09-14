@@ -3,7 +3,7 @@
   Chapter - Computational Geometry
   Concept - Intersection of Lines.
   Page No. - 1017, 1018
-  Status :- Not completed
+  Status :- Completed
 */
 import java.io.*;
 
@@ -34,19 +34,24 @@ public class SegmentsIntersect{
     }
 
     public static boolean segIntersect(Point[] arrOfPoints){
-        int d1 = direction(arrOfPoints[2], arrOfPoints[3], arrOfPoints[0]);
-        int d2 = direction(arrOfPoints[2], arrOfPoints[3], arrOfPoints[1]);
-        int d3 = direction(arrOfPoints[0], arrOfPoints[1], arrOfPoints[2]);
-        int d4 = direction(arrOfPoints[0], arrOfPoints[1], arrOfPoints[3]);
+        int d1 = direction(arrOfPoints[0], arrOfPoints[1], arrOfPoints[2]);
+        int d2 = direction(arrOfPoints[0], arrOfPoints[1], arrOfPoints[3]);
+        int d3 = direction(arrOfPoints[2], arrOfPoints[3], arrOfPoints[0]);
+        int d4 = direction(arrOfPoints[2], arrOfPoints[3], arrOfPoints[1]);
 
         if(d1!=d2 && d3!=d4) return true;
-        else if (d1==0 && onSegment(arrOfPoints[2], arrOfPoints[3], arrOfPoints[0])) return true;
-        else if (d2==0 && onSegment(arrOfPoints[2], arrOfPoints[3], arrOfPoints[1])) return true;
-        else if (d3==0 && onSegment(arrOfPoints[0], arrOfPoints[1], arrOfPoints[2])) return true;
-        else if (d4==0 && onSegment(arrOfPoints[0], arrOfPoints[1], arrOfPoints[3])) return true;
+        else if (d1==0 && onSegment(arrOfPoints[0], arrOfPoints[1], arrOfPoints[2])) return true;
+        else if (d2==0 && onSegment(arrOfPoints[0], arrOfPoints[1], arrOfPoints[3])) return true;
+        else if (d3==0 && onSegment(arrOfPoints[2], arrOfPoints[3], arrOfPoints[0])) return true;
+        else if (d4==0 && onSegment(arrOfPoints[2], arrOfPoints[3], arrOfPoints[1])) return true;
         else return false;
     } 
 
+    /* This function tells about orientation of  three points(Two 
+        of one line and one of second line). 0 means collinear 
+        1 or greater than 0 means clockwise
+        2 or less than 0 means counterclockwise
+    */
     public  static int direction(Point p1, Point p2, Point p3){
         //pk-pi
         int val = (p3.y-p1.y)*(p2.x-p3.x) - (p3.x-p1.x)*(p2.y-p3.y);
@@ -54,6 +59,12 @@ public class SegmentsIntersect{
         return (val>0)? 1:2;
     }
 
+    /*
+    This function helps when lines are in reality intersecting but
+    their three points are collinear.
+    For example:- Line 1 - (1,1) to (4,4)
+                  Line 2 - (3,3) to (4,1) 
+    */ 
     public static boolean onSegment(Point pi, Point pj, Point pk){
         if((Math.min(pi.x,pj.x)<=pk.x && Math.max(pi.x, pj.x)>=pk.x) && (
             Math.min(pi.y,pj.y)<=pk.y && Math.max(pi.y, pj.y)>=pk.y)) 
@@ -70,4 +81,8 @@ public class SegmentsIntersect{
     
     Third Day - Got some points of concept wrong, so now improving them.
                 Updated direction(concept wise orientation).
+    
+    Fourth Day - Finished and understood concept. Before Implementing it read it from Coremen
+                 then give it a read on geeksforgeeks and understand about orientation.
+                 Then you can easily solve it.
 */
