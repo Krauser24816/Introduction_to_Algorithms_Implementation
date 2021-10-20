@@ -72,17 +72,3 @@ public class SegmentsIntersect{
         else return false;
     }
 }
-
-// First day - Took input using bufferedReader class, Tried to figure out direction function.
-
-/* Second day - Resolved all syntax errors but answer is wrong. Now would take help from 
-                GeeksforGeeks article
-                Link:- https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
-    
-    Third Day - Got some points of concept wrong, so now improving them.
-                Updated direction(concept wise orientation).
-    
-    Fourth Day - Finished and understood concept. Before Implementing it read it from Coremen
-                 then give it a read on geeksforgeeks and understand about orientation.
-                 Then you can easily solve it.
-*/
