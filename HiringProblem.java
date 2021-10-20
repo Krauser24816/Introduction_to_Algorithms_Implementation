@@ -10,18 +10,19 @@ import java.util.*;
 
 public class HiringProblem {
     
-    public class candidateInfo implements Comparable<candidateInfo>{
-        int competence=0, candidateId=0;
-        boolean isEmployee=false;
-        candidateInfo(int candidateId, boolean isEmployee, int competence){
+    public class CandidateInfo implements Comparable<CandidateInfo>{
+        int competence, candidateId;
+        boolean isEmployee;
+        public CandidateInfo(int candidateId, boolean isEmployee, int competence){
             this.candidateId = candidateId;
             this.isEmployee = isEmployee;
             this.competence = competence;
         }
 
         @Override
-        public int compareTo(candidateInfo o) {
-        return  o.competence - this.competence;
+        public int compareTo(CandidateInfo o) {
+            return  (o.competence - this.competence);
+        }
     }
 
 
@@ -31,7 +32,7 @@ public class HiringProblem {
 
         System.out.println("Enter the number of all possible people in competition");
         int totalNumOfCandidate = Integer.parseInt(br.readLine());
-        ProrityQueue<candidateInfo> maxCompetence = new PriorityQueue<candidateInfo>();
+        ProrityQueue<CandidateInfo> maxCompetence = new PriorityQueue<CandidateInfo>();
         
         System.out.println("Enter all potential people for company with candidateId.");
         System.out.println("If they the persons who have been just interviewed then add 0 in candidateId");
@@ -43,12 +44,14 @@ public class HiringProblem {
             
             System.out.print("Enter competence: - ");
             int competence = Integer.parseInt(br.readLine());
+            
+            boolean isEmployee = true;
 
-            // if(candidateId==0){
-                
-            // } else {
+            if(candidateId==0){
+                isEmployee = false;                                         
+            }
 
-            // }
+            maxCompetence.add(new CandidateInfo(candidateId, isEmployee ,competence));
         }
 
     }
